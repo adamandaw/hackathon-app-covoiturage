@@ -1,0 +1,120 @@
+
+<div class="body">
+    <div class="sidebar">
+        <div class="admin-info">
+            <h4>ADMIN</h4>
+            <p>Prenom Nom</p>
+        </div>
+        <ul>
+            <li onclick="loadData('itineraires')">Itinéraires</li>
+            <a class="nav-link" href="">Déconnexion</a>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card bg-primary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Itinéraires Disponible</h5>
+                        <h2 class="card-text" id="itineraires-en-cours">15</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Nombre de Véhicules</h5>
+                        <h2 class="card-text" id="itineraires-valides">32</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="list-content">
+            <div id="itineraires-content" class="">
+                <h3 id="list-title">Liste des Itinéraires</h3>
+                
+                <div class="search-container">
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#itineraireModal">+</button>
+                    <div class="input-group">
+                        <input type="text" id="searchInput" class="form-control" placeholder="Rechercher par destination...">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-success" type="button">Search</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">n°</th>
+                                <th scope="col">Origine</th>
+                                <th scope="col">Destination</th>
+                                <th scope="col">Date Départ</th>
+                                <th scope="col">État</th>
+                                <th scope="col">Conducteur</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="itinerairesTableBody">
+                            <!--  ici on ajoute la boucle des itineraires -->
+                            <tr data-itineraire-id="">
+                                <th scope="row"> ####.id</th>
+                                <td> itineraire.origine </td>
+                                <td> itineraire.destination </td>
+                                <td>itineraire.date_depart</td>
+                                <td>itineraire.statut </td>
+                                <td> itineraire.nom_conducteur </td>
+                                <td>
+                                    <form action="" method="post">
+                                        <input type="hidden" name="itineraire_id" value="">
+                                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <!--fin boucle-->   
+                        </tbody>
+                    </table>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Itinéraire -->
+    <div class="modal fade" id="itineraireModal" tabindex="-1" role="dialog" aria-labelledby="itineraireModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="itineraireModalLabel">Ajouter un Itinéraire</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="itineraireForm">
+                    <form action="" method="POST">
+                        <div class="form-group">
+                            <label for="inputOrigine">Origine</label>
+                            <input type="text" class="form-control" id="inputOrigine" name="inputOrigine" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputDestination">Destination</label>
+                            <input type="text" class="form-control" id="inputDestination" name="inputDestination" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputDateDepart">Date de départ</label>
+                            <input type="date" class="form-control" id="inputDateDepart" name="inputDateDepart" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Ajouter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src=""></script>
+    
+</div>
