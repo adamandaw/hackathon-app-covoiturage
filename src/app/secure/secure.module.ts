@@ -2,16 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SecureRoutingModule } from './secure-routing.module';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-
+import { TopbarComponent } from './components/topbar/topbar.component';
+import { RouterLink } from '@angular/router';
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    TopbarComponent,
+    
   ],
-  imports: [
-    CommonModule,
-    SecureRoutingModule
-  ]
+  imports: [CommonModule, SecureRoutingModule,RouterLink],
+  exports: [
+  
+    //Les composants accessibles à l'extérieur du module
+  ],
 })
-export class SecureModule { }
+export class SecureModule {}

@@ -1,12 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ListComponent } from './pages/trajet/list/list.component';
+import { TopbarComponent } from './components/topbar/topbar.component';
+import { FormComponent } from './pages/trajet/form/form.component';
 
 const routes: Routes = [
   {
-    path:"",
-    component:DashboardComponent,
-   }
+    path: '',
+    component: TopbarComponent,
+    children: [
+      {
+        path: 'trajet',
+        component: ListComponent
+      },
+      {
+        path: 'trajet-form',
+        component: FormComponent
+      },
+      
+    ],
+  },
 ];
 
 @NgModule({

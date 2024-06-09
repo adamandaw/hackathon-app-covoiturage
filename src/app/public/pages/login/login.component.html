@@ -1,34 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
-    <link href="/static/CSS/style.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100 flex items-center justify-center h-screen">
-    <div class="w-full max-w-xl">
-        <form class="mx-auto shadow-lg p-10 bg-white rounded-lg" action="#" method="POST">
-            <div class="flex justify-center mb-12">
-                <img src="/Users/amadyfarbasy/Downloads/accaton/imagage/login.avif" alt="Login Image" class="w-32 h-32 object-cover">
+<form [formGroup]="form" (submit)="onSubmit()">
+    <div class="flex items-center p-6 bg-gray-50 dark:bg-gray-900 mt-10">
+        <div style="background-color: #e2f5f8;" class="flex-1 h-full max-w-2xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
+           
+               
+                    <div class="w-full px-20 ">
+                        <div class="w-2/5 mt-4 flex justify-center items-center" style="margin-left: 30%;">
+                            <img 
+                                aria-hidden="true"
+                                class="object-cover"
+                                src="assets/img/logo.png"
+                                alt="Office"
+                            />
+                        </div>
+                        <div class=" flex justify-center items-center mt-5"> 
+                            <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">Connexion</h1> 
+                        </div>
+                        
+                        <small class=" text-red-600">{{error}}</small>
+                        
+                        <label class="block text-sm" for="inputEmail">
+                        <span class="text-gray-700 dark:text-gray-400">Email</span>
+                        <input formControlName="username"
+                            type="email" value="" name="login" id="inputEmail" autocomplete="email" required autofocus
+                            class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                            placeholder="exemple@gmail.com"
+                        />
+                        </label>
+                        <label class="block mt-4 text-sm" for="inputPassword">
+                        <span class="text-gray-700 dark:text-gray-400">Password</span>
+                        <input formControlName="password"
+                            type="password" name="password" id="inputPassword" autocomplete="current-password" required
+                            class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                            placeholder="********"
+                            type="password"
+                        />
+                        </label>
+                        <p class="mt-4">
+                            <a class="text-sm font-medium text-blue-600 dark:text-purple-400 hover:underline"href="#"> Forgot your password ?</a>
+                        </p>
+
+                    
+                        <!-- You should use a button here, as the anchor is only used for the example  -->
+                        <button type="submit" class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-purple">
+                            Log in
+                        </button>
+                        <hr class="my-8" />              
+                    </div>
+                </div>
             </div>
-            <h2 class="text-2xl font-semibold text-center text-gray-900 mb-6">Connexion</h2>
-            <div class="mb-6">
-              <label for="identifiant" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Identifiant </label>
-              <input type="text" id="identifiant" name="identifiant" aria-label="Identifiant" class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Entrez votre téléphone ou prénom" required />
-            </div>
-            <div class="mb-6">
-              <label for="password" class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Mot de passe</label>
-              <input type="password" id="password" name="mdp" aria-label="Password" class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
-            </div>
-            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg w-full sm:w-auto px-6 py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mb-4">Connexion</button>
-            <button type="button" class="text-white bg-gray-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-lg w-full sm:w-auto px-6 py-3 text-center dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-900 mb-4">
-                <img src="imagage/iconeGoogle.webp" class="inline w-5 h-5 mr-2" alt="Google Logo"> Se connecter avec Google
-            </button>
-            <p class="text-center text-gray-500">Pas encore de compte? <a href="#" class="text-blue-600 hover:underline">S'inscrire</a></p>
-        </form>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@1/dist/flowbite.min.js"></script>
-</body>
-</html>
+
+</form>
