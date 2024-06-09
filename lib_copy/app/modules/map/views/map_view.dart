@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../controllers/home_controller.dart';
+import '../controllers/map_controller.dart';
 
-class HomeView extends GetView<HomeController> {
+class MapView extends GetView<MapController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('BokkouYon'),
+      appBar: AppBar(
+        title: Text('MapView'),
         centerTitle: true,
       ),
       body: Center(
         child: Text(
-          'BokkouYon',
+          'MapView is working',
           style: TextStyle(fontSize: 20),
         ),
       ),

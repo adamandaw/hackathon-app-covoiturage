@@ -1,21 +1,22 @@
-name: flutter_mobile_halkaton
-version: 1.0.0+1
-publish_to: none
-description: A new Flutter project.
-environment: 
-  sdk: '>=3.4.1 <4.0.0'
+name: flutter_application_bokkuyon
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
 
-dependencies: 
+environment:
+  sdk: '>=3.4.3 <4.0.0'
+
+dependencies:
   cupertino_icons: ^1.0.6
   get: 4.6.6
-  flutter: 
+  google_maps_flutter:^2.2.0
+  flutter:
     sdk: flutter
 
-dev_dependencies: 
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
   flutter_lints: ^3.0.0
-  flutter_test: 
-    sdk: flutter
 
-flutter: 
+flutter:
   uses-material-design: true
-
