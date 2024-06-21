@@ -32,4 +32,6 @@ public class Trajet extends  AbstractEntity{
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDate date;
 
+    @ManyToOne()
+    private ConducteurEntity conducteur;
 }

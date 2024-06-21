@@ -1,5 +1,6 @@
 package com.group.c.hackaton.web.dto.request;
 
+import com.group.c.hackaton.data.entities.ConducteurEntity;
 import com.group.c.hackaton.data.entities.Trajet;
 import jakarta.persistence.Column;
 import jakarta.persistence.Temporal;
@@ -35,6 +36,8 @@ public class TrajetDtoRequest {
     private Integer nbrPlace;
 
     private LocalDate date;
+
+    private ConducteurEntity conducteur;
     //Mapper
     public Trajet toEntity(){
         Trajet trajet = Trajet.builder()
@@ -42,6 +45,7 @@ public class TrajetDtoRequest {
                 .nbrPlace(nbrPlace)
                 .depart(depart)
                 .destination(destination)
+                .conducteur(conducteur)
                 .build();
 
         return trajet;

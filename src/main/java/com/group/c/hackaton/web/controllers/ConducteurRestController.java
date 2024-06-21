@@ -8,16 +8,19 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-public interface TrajetRestController {
+public interface ConducteurRestController {
 
-    @GetMapping("/trajet/list/all")
-    ResponseEntity<Map<Object,Object>> listerTousLesTrajets( @RequestParam(defaultValue = "0") int page,
+    @GetMapping("/conducteur/list/all")
+    ResponseEntity<Map<Object,Object>> listerConducteurs( @RequestParam(defaultValue = "0") int page,
                                                              @RequestParam(defaultValue = "10") int size);
 
-    @PostMapping("/trajet/{conducteurTelephone}")
-    ResponseEntity<Map<Object, Object>> create(@PathVariable(required = false) String conducteurTelephone,
-                                               @Valid @RequestBody TrajetDtoRequest trajetDtoRequest,
-                                               BindingResult bindingResult);
+    @GetMapping("/conducteur/{conducteurId}")
+    ResponseEntity<Map<Object,Object>> unConducteur( @PathVariable( name = "conducteurId") Long conducteurId);
+
+//    @PostMapping("/conducteur/{conducteurTelephone}")
+//    ResponseEntity<Map<Object, Object>> create(@PathVariable(required = false) String conducteurTelephone,
+//                                               @Valid @RequestBody TrajetDtoRequest trajetDtoRequest,
+//                                               BindingResult bindingResult);
 }
 
 

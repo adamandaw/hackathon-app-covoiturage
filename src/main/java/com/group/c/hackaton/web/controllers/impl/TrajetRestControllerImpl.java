@@ -1,6 +1,8 @@
 package com.group.c.hackaton.web.controllers.impl;
 
+import com.group.c.hackaton.data.entities.ConducteurEntity;
 import com.group.c.hackaton.data.entities.Trajet;
+import com.group.c.hackaton.services.ConducteurService;
 import com.group.c.hackaton.services.TrajetService;
 import com.group.c.hackaton.web.controllers.TrajetRestController;
 import com.group.c.hackaton.web.dto.request.TrajetDtoRequest;
@@ -12,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,9 +29,10 @@ import java.util.Map;
 @RequestMapping("/api")
 public class TrajetRestControllerImpl implements TrajetRestController {
     private final TrajetService trajetService;
+    private final ConducteurService conducteurService;
     @Override
     public ResponseEntity<Map<Object, Object>> listerTousLesTrajets(@RequestParam(defaultValue = "0") int page,
-                                                                    @RequestParam(defaultValue = "8") int size) {
+                                                                    @RequestParam(defaultValue = "10") int size) {
         Map<Object,Object> response = new HashMap<>();
 
         Page<Trajet> trajets = trajetService.getListOfTrajet(page,size);
@@ -47,8 +51,15 @@ public class TrajetRestControllerImpl implements TrajetRestController {
     }
 
     @Override
-    public ResponseEntity<Map<Object, Object>> create(TrajetDtoRequest trajetDtoRequest, BindingResult bindingResult) {
+    public ResponseEntity<Map<Object, Object>> create(String conducteurTelephone,TrajetDtoRequest trajetDtoRequest, BindingResult bindingResult) {
         Map<Object, Object> response;
+//        System.out.println("\n------TRAJET CONTROLLER---------------\n");
+//        System.out.println(conducteurTelephone);
+        ConducteurEntity conducteurByTelephone = conducteurService.getByTelephone(conducteurTelephone);
+        if (conducteurByTelephone != null) {
+            trajetDtoRequest.setConducteur(conducteurByTelephone);
+        }
+
         if (bindingResult.hasErrors()){
             Map<String, String> errors =new HashMap<>();
             List<FieldError> fieldErrors = bindingResult.getFieldErrors();
